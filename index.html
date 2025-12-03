@@ -2,343 +2,656 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <title>ドシラク＆バプジプ | ホーム</title>
+  <title>ドシラク＆バプジプ 高円寺本店 | Korean Style Restaurant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ドシラク＆バプジプ 高円寺本店。チキン弁当、サムギョプサル弁当、トッポッキ、キンパなど、韓国の家庭ごはんをそのままお弁当にしてお届けします。">
+  <meta name="description" content="ドシラク＆バプジプ 高円寺本店。チキン弁当、サムギョプサル弁当、トッポッキ、キンパなど、韓国家庭のごはんを東京の日常にお届けします。" />
 
-  <!-- Korean brush / brand fonts -->
+  <!-- 일본어용 굵은 제목 + 본문 폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Do+Hyeon&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --bg-paper: #f3e4c9;
+      --brand-brown: #8a5a2d;
+      --brand-dark: #3a2716;
+      --brand-accent: #c86a3a;
+      --ink: #29251e;
+      --nav-height: 70px;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family:"Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color:#e4d0a3;
-      background-image:url("bg-hanji.jpg");
-      background-size:cover;
-      background-attachment:fixed;
-      background-repeat:no-repeat;
-      color:#2b2115;
-      line-height:1.7;
+      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--ink);
+      background-color: var(--bg-paper);
+      background-image: url("bg-hanji.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      line-height: 1.6;
     }
 
-    a { color:inherit; text-decoration:none; }
-
-    .container {
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 16px;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    /* ---------- HEADER / NAV ---------- */
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ===== 창호 오프닝 오버레이 ===== */
+    #door-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      pointer-events: none;
+    }
+
+    .door {
+      flex: 1;
+      background-image: url("door_closed.jpg");
+      background-size: cover;
+      background-position: center;
+      animation-duration: 2.4s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    .door-left {
+      background-position: left center;
+      animation-name: door-left-open;
+    }
+
+    .door-right {
+      background-position: right center;
+      animation-name: door-right-open;
+    }
+
+    @keyframes door-left-open {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes door-right-open {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* ===== 레이아웃 ===== */
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
     header {
-      background:rgba(255,255,255,0.96);
-      border-bottom:1px solid rgba(180,140,90,0.4);
-      box-shadow:0 4px 16px rgba(0,0,0,0.05);
-      position:sticky;
-      top:0;
-      z-index:50;
-      backdrop-filter:blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(248, 238, 219, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .nav-inner {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:8px 0;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
     }
 
-    .logo-group {
-      display:flex;
-      align-items:center;
-      gap:10px;
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .logo-badge {
-      display:flex;
-      align-items:center;
-      gap:6px;
-      padding:4px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,0.9);
-      border:1px solid rgba(210,170,120,0.8);
-      box-shadow:0 4px 10px rgba(0,0,0,0.06);
+    .brand-logos {
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
-    .logo-badge img {
-      height:34px;
-      width:auto;
-      border-radius:999px;
-      object-fit:cover;
+    .brand-logos img {
+      height: 34px;
+      width: auto;
+      border-radius: 999px;
+      background: #fff;
+      padding: 4px 6px;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+      object-fit: cover;
     }
 
-    .brand-text-main {
-      font-family:"Do Hyeon","East Sea Dokdo",system-ui;
-      font-weight:400;
-      font-size:1.05rem;
-      letter-spacing:0.16em;
+    .brand-title-main {
+      font-family: "M PLUS 1p", system-ui, sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      font-size: 18px;
+      color: var(--brand-dark);
     }
 
-    .brand-text-sub {
-      font-size:0.7rem;
-      opacity:0.8;
+    .brand-title-sub {
+      font-size: 11px;
+      color: #7b6a4c;
+      text-transform: uppercase;
     }
 
-    nav.main-nav {
-      display:flex;
-      align-items:center;
-      gap:14px;
-      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
-      letter-spacing:0.16em;
-      font-size:0.9rem;
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
     }
 
-    .nav-item {
-      position:relative;
-      padding:6px 14px;
-      border-radius:999px;
-      background:rgba(250,239,211,0.8);
-      border:1px solid rgba(210,160,90,0.7);
-      box-shadow:0 3px 6px rgba(0,0,0,0.06);
-      transition:transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
     }
 
-    .nav-item:hover {
-      transform:translateY(-1px);
-      background:#f5e1b9;
-      box-shadow:0 5px 12px rgba(0,0,0,0.12);
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand-accent);
+      transition: width 0.2s ease;
     }
 
-    .nav-item.active {
-      background:#dba15a;
-      color:#fff;
-      border-color:#c07c35;
-      box-shadow:0 5px 14px rgba(0,0,0,0.18);
+    nav a:hover::after {
+      width: 100%;
     }
 
-    /* ---------- MAIN / HERO ---------- */
+    main {
+      flex: 1;
+    }
 
-    main { padding:26px 0 40px; }
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 16px;
+    }
 
+    .section + .section {
+      padding-top: 8px;
+    }
+
+    .section-heading {
+      font-family: "M PLUS 1p", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: 0.16em;
+      color: var(--brand-dark);
+      margin-bottom: 8px;
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: #b08a5c;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .section-lead {
+      font-size: 14px;
+      color: #5c4b33;
+      margin-bottom: 20px;
+    }
+
+    /* ===== 광고 영상 섹션 ===== */
+    .promo-card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      padding: 20px 20px 24px;
+    }
+
+    .promo-video-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      margin-top: 8px;
+    }
+
+    .promo-video-wrapper video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ===== 히어로 섹션 ===== */
     .hero-card {
-      max-width:980px;
-      margin:0 auto 26px;
-      background:rgba(255,255,255,0.96);
-      border-radius:26px;
-      padding:24px 22px 26px;
-      box-shadow:0 12px 32px rgba(0,0,0,0.15);
-    }
-
-    .hero-grid {
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-    }
-
-    .hero-title {
-      font-family:"East Sea Dokdo","Do Hyeon",system-ui;
-      font-size:2.4rem;
-      letter-spacing:0.24em;
-      margin-bottom:4px;
-    }
-
-    .hero-katakana {
-      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
-      font-size:0.9rem;
-      letter-spacing:0.18em;
-      margin-bottom:6px;
-      color:#8b5a23;
-    }
-
-    .hero-sub {
-      font-size:0.9rem;
-      color:#5c4630;
-      font-weight:500;
-      margin-bottom:10px;
-    }
-
-    .hero-badges {
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-bottom:12px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 24px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.07);
+      padding: 26px;
+      align-items: center;
     }
 
     .hero-badge {
-      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
-      font-size:0.75rem;
-      letter-spacing:0.12em;
-      padding:4px 10px;
-      border-radius:999px;
-      background:#f8e4c3;
-      border:1px solid rgba(210,160,90,0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(200, 106, 58, 0.09);
+      color: var(--brand-accent);
+      font-size: 11px;
+      margin-bottom: 10px;
     }
 
-    video.hero-video {
-      width:100%;
-      border-radius:20px;
-      box-shadow:0 10px 26px rgba(0,0,0,0.25);
-      background:#000;
+    .hero-title {
+      font-family: "M PLUS 1p", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 30px;
+      letter-spacing: 0.16em;
+      margin-bottom: 10px;
+      color: var(--brand-dark);
     }
 
-    /* ---------- SECTIONS ---------- */
-
-    .section {
-      max-width:980px;
-      margin:0 auto 22px;
-      background:rgba(255,255,255,0.96);
-      border-radius:22px;
-      padding:20px 22px 22px;
-      box-shadow:0 8px 24px rgba(0,0,0,0.10);
+    .hero-copy {
+      font-size: 14px;
+      color: #4d3f2a;
+      margin-bottom: 16px;
     }
 
-    .section-title {
-      font-family:"East Sea Dokdo","Do Hyeon",system-ui;
-      font-size:1.7rem;
-      letter-spacing:0.22em;
-      margin-bottom:6px;
+    .hero-meta {
+      font-size: 12px;
+      color: #8b7a60;
     }
 
-    .section-sub {
-      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
-      font-size:0.82rem;
-      letter-spacing:0.18em;
-      color:#8b5a23;
-      margin-bottom:10px;
+    .hero-image-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .section-body {
-      font-size:0.9rem;
-      color:#463524;
+    .hero-image-wrap img {
+      width: 100%;
+      height: auto;
+      transform: scale(1.03);
+      transform-origin: center;
     }
 
-    .section-body strong { font-weight:700; }
-
-    .keypoints {
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:12px;
+    .hero-tag {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      font-size: 11px;
     }
 
-    .keypoint {
-      flex:1 1 180px;
-      min-width:180px;
-      background:#fff7e6;
-      border-radius:18px;
-      padding:10px 12px;
-      font-size:0.85rem;
-      border:1px solid rgba(210,160,90,0.7);
+    /* ===== 브랜드 철학 섹션 ===== */
+    .philosophy-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 24px;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 24px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.07);
+      padding: 26px;
+      align-items: stretch;
     }
 
-    .keypoint-label {
-      display:block;
-      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
-      font-size:0.8rem;
-      letter-spacing:0.16em;
-      color:#b76a22;
-      margin-bottom:2px;
+    .philosophy-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    /* ---------- RESPONSIVE ---------- */
-
-    @media (min-width:768px) {
-      .hero-grid { flex-direction:row; }
-      .hero-text { flex:1; }
-      .hero-media { flex:1.2; }
+    .philosophy-title {
+      font-family: "M PLUS 1p", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 0.18em;
+      color: var(--brand-dark);
     }
 
-    @media (max-width:768px) {
-      .nav-inner { flex-direction:column; gap:8px; }
-      nav.main-nav { justify-content:center; flex-wrap:wrap; }
-      .hero-title { font-size:2rem; }
-      .section-title { font-size:1.5rem; }
+    .philosophy-lead {
+      font-size: 14px;
+      color: #4b3d28;
+    }
+
+    .philosophy-list {
+      font-size: 13px;
+      color: #5a4a30;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .philosophy-list li::before {
+      content: "・";
+      margin-right: 4px;
+    }
+
+    .philosophy-image-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+    }
+
+    .philosophy-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .philosophy-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      font-size: 11px;
+    }
+
+    /* ===== 푸터 ===== */
+    footer {
+      margin-top: 40px;
+      background: #f5e0b7;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 0.8fr);
+      gap: 24px;
+      align-items: start;
+      font-size: 12px;
+      color: #5b4a34;
+    }
+
+    .footer-brand-main {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-logo-row img {
+      height: 32px;
+      width: auto;
+      border-radius: 999px;
+      background: #fff;
+      padding: 4px 8px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
+    }
+
+    .footer-nova {
+      font-family: "M PLUS 1p", system-ui, sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      font-size: 14px;
+      color: var(--brand-dark);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+    }
+
+    .footer-sns {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .sns-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sns-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+    }
+
+    .sns-icon svg {
+      width: 16px;
+      height: 16px;
+      fill: #111;
+    }
+
+    .footer-copy {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 11px;
+      color: #8a785a;
+    }
+
+    @media (max-width: 800px) {
+      .nav-inner {
+        gap: 8px;
+      }
+      nav ul {
+        gap: 12px;
+        font-size: 12px;
+      }
+      .hero-card,
+      .philosophy-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .footer-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
+
 <body>
-<header>
-  <div class="container nav-inner">
-    <!-- 왼쪽: 도시락 로고 + 밥집 로고 -->
-    <div class="logo-group">
-      <div class="logo-badge">
-        <img src="dosiraku.jpg" alt="ドシラク ロゴ">
-        <img src="bapjip.png" alt="バプジプ ロゴ">
-        <div>
-          <div class="brand-text-main">ドシラク＆バプジプ</div>
-          <div class="brand-text-sub">Korean Style Restaurant</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 오른쪽: 네비게이션 -->
-    <nav class="main-nav">
-      <a class="nav-item active" href="index.html">ホーム</a>
-      <a class="nav-item" href="menu.html">メニュー</a>
-      <a class="nav-item" href="order.html">注文</a>
-      <a class="nav-item" href="shop.html">店舗情報</a>
-    </nav>
+  <!-- 창호 오프닝 -->
+  <div id="door-overlay">
+    <div class="door door-left"></div>
+    <div class="door door-right"></div>
   </div>
-</header>
 
-<main class="container">
-  <!-- HERO -->
-  <section class="hero-card">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <div class="hero-badges">
-          <span class="hero-badge">高円寺本店</span>
-          <span class="hero-badge">テイクアウト &amp; デリバリー専門</span>
+  <div class="page-wrapper">
+    <!-- 헤더 -->
+    <header>
+      <div class="nav-inner">
+        <div class="brand-left">
+          <div class="brand-logos">
+            <img src="dosiraku.jpg" alt="Dosirak logo">
+            <img src="bapjip.png" alt="Bapjip logo">
+          </div>
+          <div>
+            <div class="brand-title-main">ドシラク＆バプジプ 高円寺本店</div>
+            <div class="brand-title-sub">KOREAN STYLE RESTAURANT</div>
+          </div>
         </div>
-        <div class="hero-katakana">DOSIRAK &amp; BAPUJIPU</div>
-        <h1 class="hero-title">ドシラク＆バプジプ 高円寺</h1>
-        <p class="hero-sub">
-          チキン弁当、サムギョプサル弁当、トッポッキ、キンパなど、<br>
-          韓国の家庭ごはんを、そのままお弁当にしました。
+        <nav aria-label="메인 메뉴">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="order.html">注文</a></li>
+            <li><a href="shop.html">店舗情報</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- 광고 영상 섹션 -->
+      <section class="section" id="top">
+        <div class="section-kicker">CM</div>
+        <h2 class="section-heading">プロモーション動画</h2>
+        <p class="section-lead">
+          高円寺の街で、できたてのお弁当と韓国家庭料理をお届けするドシラク＆バプジプ。
+          お店の雰囲気とメニューの一部を、ショートムービーでご覧ください。
         </p>
-      </div>
-      <div class="hero-media">
-        <video class="hero-video" src="cm.mp4" autoplay muted loop playsinline></video>
-      </div>
-    </div>
-  </section>
 
-  <!-- 브랜드 / 체인 소개 -->
-  <section class="section">
-    <h2 class="section-title">韓国のおうちごはんを、東京の日常に。</h2>
-    <div class="section-sub">KOREAN HOME MEAL CHAIN</div>
-    <div class="section-body">
-      <p>
-        ドシラク＆バプジプは、高円寺から始まった
-        <strong>韓国家庭料理のお弁当チェーン</strong>です。<br>
-        フライドチキン、サムギョプサル、キンパ、トッポッキ…。<br>
-        「今日は韓国ごはんにしよう」と思ったその日に、
-        まとめてテイクアウト・デリバリーできるお店を目指しています。
-      </p>
+        <div class="promo-card">
+          <div class="promo-video-wrapper">
+            <video src="cm.mp4" controls preload="metadata"></video>
+          </div>
+        </div>
+      </section>
 
-      <div class="keypoints">
-        <div class="keypoint">
-          <span class="keypoint-label">POINT 01</span>
-          チキン弁当・サムギョプサル弁当・キンパ・トッポッキなど
-          人気メニューを一つのお店でオーダー可能。
+      <!-- 히어로 섹션 -->
+      <section class="section">
+        <div class="hero-card">
+          <div>
+            <div class="hero-badge">今日のごはんは、韓国家庭の食卓から。</div>
+            <h1 class="hero-title">チキン弁当と<br>韓国家庭料理の専門店</h1>
+            <p class="hero-copy">
+              サクサクのフライドチキン弁当、サムギョプサル弁当、トッポッキ、キンパ…。
+              韓国のおうちで食べるような「ちゃんとしたごはん」を、そのままお弁当に詰めました。
+              テイクアウトでもデリバリーでも、あたたかい一食をお届けします。
+            </p>
+            <p class="hero-meta">
+              Uber Eats・出前館・お電話注文に対応。<br>
+              高円寺・中野エリアの韓国ごはんは、ドシラク＆バプジプにおまかせください。
+            </p>
+          </div>
+          <div class="hero-image-wrap">
+            <img src="hero_main_food.jpg" alt="韓国料理とお弁当のテーブルイメージ">
+            <div class="hero-tag">KOREAN STYLE RESTAURANT</div>
+          </div>
         </div>
-        <div class="keypoint">
-          <span class="keypoint-label">POINT 02</span>
-          Uber Eats / 出前館 / 電話注文から選べて、
-          忙しい日もサクッと韓国ごはん。
+      </section>
+
+      <!-- 브랜드 철학 섹션 -->
+      <section class="section">
+        <div class="section-kicker">PHILOSOPHY</div>
+        <h2 class="section-heading">バプジプのこだわり</h2>
+        <p class="section-lead">
+          「チェーン店でも、食材だけはちゃんとしたものを。」<br>
+          そんなシンプルな約束を、NOVA LABのフードブランドとして大切にしています。
+        </p>
+
+        <div class="philosophy-card">
+          <div class="philosophy-copy">
+            <h3 class="philosophy-title">素材は、手を抜かない。</h3>
+            <p class="philosophy-lead">
+              特別な高級食材ではなくても、毎日食べたくなる“まじめなお弁当”でありたい。
+              だからこそ、油・お米・キムチ・タレなど、毎日使うベースの部分にコストと手間をかけています。
+            </p>
+            <ul class="philosophy-list">
+              <li>揚げ油はこまめに交換し、チキンの香りと軽さをキープ</li>
+              <li>キンパ・ナムルは店舗で仕込み、出来たての風味をそのまま</li>
+              <li>お肉の下味はオリジナルレシピのヤンニョムでじっくり漬け込み</li>
+              <li>「今日はこれを食べてよかった」と思える満足感を目指しています</li>
+            </ul>
+            <p class="philosophy-lead">
+              派手な演出よりも、毎日の食卓の安心感を。<br>
+              ドシラク＆バプジプは、高円寺から始まる小さな“Korean Style Restaurant Chain”として、
+              一つ一つの店舗クオリティにこだわり続けます。
+            </p>
+          </div>
+          <div class="philosophy-image-wrap">
+            <img src="brand_philosophy_marble.jpg" alt="食材が並んだスタイリッシュなイメージ">
+            <div class="philosophy-tag">INGREDIENTS &amp; PHILOSOPHY</div>
+          </div>
         </div>
-        <div class="keypoint">
-          <span class="keypoint-label">POINT 03</span>
-          高円寺からスタートし、今後は東京各地へ。
-          チェーン展開を見据えて準備中です。
+      </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand-main">
+          <div class="footer-logo-row">
+            <img src="NOVA_LAB.jpg" alt="NOVA LAB ロゴ">
+            <span class="footer-nova">NOVA LAB</span>
+          </div>
+          <div>
+            ドシラク＆バプジプ 高円寺本店 は、NOVA LAB が運営する<br>
+            Korean Style Restaurant ブランドの第1号店です。
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <strong>メニュー</strong>
+          <a href="menu.html">メニュー一覧</a>
+          <a href="order.html">ご注文（Uber Eats / 出前館 / お電話）</a>
+          <a href="shop.html">店舗情報・アクセス</a>
+        </div>
+
+        <div class="footer-sns">
+          <div>公式SNS</div>
+          <div class="sns-row">
+            <a class="sns-icon" href="https://www.instagram.com/babjibkoenji" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <!-- Instagram 아이콘 (단순 SVG) -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm4.8-7.9a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1Zm2.1 1.1A5.6 5.6 0 0 0 18 5.1 5.6 5.6 0 0 0 14.8 4H9.2A5.6 5.6 0 0 0 6 5.1 5.6 5.6 0 0 0 4.1 8.3 5.6 5.6 0 0 0 3 11.5v3.6A5.6 5.6 0 0 0 4.1 18 5.6 5.6 0 0 0 7.3 19.9 5.6 5.6 0 0 0 10.5 21h3.6A5.6 5.6 0 0 0 18 19.9 5.6 5.6 0 0 0 19.9 16.7 5.6 5.6 0 0 0 21 13.5V9.9a5.6 5.6 0 0 0-1.1-3.7Zm-1.7 9.7a3.8 3.8 0 0 1-2.1 2.1 3.8 3.8 0 0 1-1.3.2h-5a3.8 3.8 0 0 1-1.3-.2 3.8 3.8 0 0 1-2.1-2.1 3.8 3.8 0 0 1-.2-1.3v-5a3.8 3.8 0 0 1 .2-1.3A3.8 3.8 0 0 1 6 7.4a3.8 3.8 0 0 1 1.3-.2h5a3.8 3.8 0 0 1 1.3.2A3.8 3.8 0 0 1 15.7 9a3.8 3.8 0 0 1 .2 1.3v5a3.8 3.8 0 0 1-.2 1.3Z" />
+              </svg>
+            </a>
+            <span>@babjibkoenji</span>
+          </div>
+        </div>
+
+        <div class="footer-copy">
+          © NOVA LAB / ドシラク＆バプジプ 高円寺本店. All rights reserved.
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </footer>
+  </div>
+
+  <script>
+    // 문 열리는 애니메이션 끝나고 오버레이 제거
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        const overlay = document.getElementById("door-overlay");
+        if (overlay) {
+          overlay.style.transition = "opacity 0.5s ease";
+          overlay.style.opacity = "0";
+          setTimeout(function () {
+            overlay.style.display = "none";
+          }, 500);
+        }
+      }, 2400); // 애니메이션 길이와 맞춰서 약간 여유
+    });
+  </script>
 </body>
 </html>
