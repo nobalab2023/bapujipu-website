@@ -1,145 +1,237 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <title>ドシラク＆バプジプ | 店舗情報・アクセス</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ドシラク＆バプジプ 高円寺本店の店舗情報とアクセス。高円寺駅から徒歩9分、中野駅から徒歩16分。">
+  <meta charset="utf-8">
+  <title>店舗情報 | ドシラク＆バプジプ 高円寺本店</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 일본 폰트 -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Noto Sans JP", system-ui, -apple-system, sans-serif;
-      background-color: #d2b48c;
-      background-image: url("bg-hanji.jpg");
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      color: #2b2115;
-      line-height: 1.6;
+    :root {
+      --bg-paper:#f3e4c9;
+      --brand-dark:#3a2716;
+      --brand-accent:#c86a3a;
+      --max-width:1080px;
+      --ink:#29251e;
     }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    body {
+      margin:0;
+      background-color:var(--bg-paper);
+      background-image:url("bg-hanji.jpg");
+      font-family:"Noto Sans JP";
+      color:var(--ink);
+    }
 
     header {
-      background: rgba(255,255,255,0.9);
-      border-bottom: 1px solid #d5c0a0;
-      padding: 10px 0;
-      margin-bottom: 24px;
-      backdrop-filter: blur(4px);
+      position:sticky;
+      top:0;
+      background:rgba(248,238,219,0.96);
+      border-bottom:1px solid rgba(0,0,0,0.08);
+      backdrop-filter:blur(8px);
+      z-index:50;
     }
-    .nav { display: flex; justify-content: space-between; align-items: center; }
-    .logo-img { height: 52px; }
+
+    .nav-inner {
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .brand-left {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .brand-logos img {
+      height:40px;
+      border-radius:50%;
+      background:#fff;
+      padding:4px 6px;
+    }
+
+    .brand-title-main {
+      font-family:"M PLUS 1p";
+      font-weight:800;
+      font-size:18px;
+      letter-spacing:.12em;
+      color:var(--brand-dark);
+    }
+
+    nav ul {
+      display:flex;
+      gap:18px;
+      list-style:none;
+      font-size:14px;
+      padding:0;
+      font-weight:600;
+      letter-spacing:.1em;
+    }
+
     nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 600;
-      color: #2b2115;
-      font-size: 0.98rem;
+      text-decoration:none;
+      color:var(--ink);
+      position:relative;
+      padding-bottom:4px;
     }
-    nav a:hover { opacity: 0.7; }
-
-    h1 { font-size: 1.9rem; margin-bottom: 16px; }
-    h2 { font-size: 1.2rem; margin-bottom: 8px; }
-    section { margin-bottom: 28px; }
-
-    .card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    nav a::after {
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width:0; height:2px;
+      background:var(--brand-accent);
+      transition:width .2s;
     }
+    nav a:hover::after { width:100%; }
 
-    .info-main {
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-    .info-main .strong {
-      font-weight: 700;
-      font-size: 1.05rem;
+    .section {
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:32px 16px 60px;
     }
 
-    .map-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-top: 14px;
-    }
-    .map-card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 18px;
-      padding: 14px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
-    .map-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-    .map-card img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    h1 {
+      font-family:"M PLUS 1p";
+      font-weight:800;
+      font-size:32px;
+      letter-spacing:.16em;
+      margin-bottom:20px;
+      color:var(--brand-dark);
     }
 
-    @media (min-width: 768px) {
-      .map-wrapper {
-        flex-direction: row;
-      }
-      .map-card {
-        width: 50%;
-      }
+    p { font-size:15px; margin-bottom:14px; }
+
+    .map {
+      width:100%;
+      border-radius:14px;
+      margin-bottom:22px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.1);
     }
 
-    @media (max-width: 768px) {
-      .nav { flex-direction: column; gap: 8px; }
-      nav a { margin-left: 0; margin-right: 16px; }
-      h1 { font-size: 1.6rem; }
+    footer {
+      background:#f5e0b7;
+      border-top:1px solid rgba(0,0,0,0.06);
+    }
+
+    .footer-inner {
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:24px 16px;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+
+    .footer-logo {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .footer-logo img {
+      height:40px;
+      border-radius:50%;
+      background:#fff;
+      padding:4px;
+    }
+
+    .footer-nova {
+      font-family:"M PLUS 1p";
+      font-weight:800;
+      font-size:16px;
+      letter-spacing:.12em;
+    }
+
+    .footer-sns {
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .footer-sns img {
+      height:22px;
+      width:22px;
+      border-radius:50%;
+    }
+
+    .copy {
+      font-size:11px;
+      color:#7d6b53;
     }
   </style>
 </head>
+
 <body>
+
 <header>
-  <div class="container nav">
-    <img src="bapjip.png" class="logo-img" alt="ドシラク＆バプジプ ロゴ">
+  <div class="nav-inner">
+    <div class="brand-left">
+      <div class="brand-logos">
+        <img src="dosiraku.jpg">
+        <img src="bapjip.png">
+      </div>
+      <div>
+        <div class="brand-title-main">ドシラク＆バプジプ 高円寺本店</div>
+        <div class="brand-title-sub">KOREAN STYLE RESTAURANT</div>
+      </div>
+    </div>
+
     <nav>
-      <a href="index.html">ホーム</a>
-      <a href="menu.html">メニュー</a>
-      <a href="order.html">注文</a>
-      <a href="shop.html">店舗情報</a>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="menu.html">メニュー</a></li>
+        <li><a href="order.html">注文</a></li>
+        <li><a href="shop.html">店舗情報</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-<main class="container">
-  <section class="card">
+<main>
+
+  <section class="section">
     <h1>店舗情報</h1>
-    <div class="info-main">
-      <p class="strong">ドシラク＆バプジプ 高円寺本店</p>
-      <p class="strong" style="margin-top:6px;">
-        住所：東京都杉並区高円寺南5丁目21番7番　高円寺マンション102号
-      </p>
-      <p style="margin-top:10px;">
-        高円寺駅から徒歩 <span class="strong">約9分</span><br>
-        中野駅から徒歩 <span class="strong">約16分</span>
-      </p>
-      <p style="margin-top:10px;">
-        電話：<span class="strong">03-3316-8866</span><br>
-        営業時間：<span class="strong">11:00〜22:00（年中無休）</span>
-      </p>
-    </div>
+
+    <p><strong>住所：</strong> 東京都杉並区高円寺南5丁目21-7 高円寺マンション102号</p>
+    <p><strong>営業時間：</strong> 11:00〜22:00（年中無休）</p>
+    <p>高円寺駅から徒歩9分 / 中野駅から徒歩16分</p>
+
+    <h2 style="font-family:'M PLUS 1p'; font-weight:700; font-size:24px;">アクセス</h2>
+
+    <img class="map" src="koenji.png" alt="koenji map">
+    <img class="map" src="nakano.png" alt="nakano map">
+
   </section>
 
-  <section>
-    <h2>アクセス</h2>
-    <div class="map-wrapper">
-      <div class="map-card">
-        <h3>高円寺駅からのアクセス（徒歩約9分）</h3>
-        <img src="koenji---.png" alt="高円寺駅からの道順">
-      </div>
-      <div class="map-card">
-        <h3>中野駅からのアクセス（徒歩約16分）</h3>
-        <img src="nakano---.png" alt="中野駅からの道順">
-      </div>
-    </div>
-  </section>
 </main>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-logo">
+      <img src="NOVA_LAB.jpg">
+      <span class="footer-nova">NOVA LAB</span>
+    </div>
+
+    <div class="footer-sns">
+      <img src="instagram.png">
+      <a href="https://www.instagram.com/babjibkoenji" target="_blank">@babjibkoenji</a>
+    </div>
+
+    <div class="copy">© 2025 NOVA LAB / ドシラク＆バプジプ 高円寺本店</div>
+
+  </div>
+</footer>
+
 </body>
 </html>
