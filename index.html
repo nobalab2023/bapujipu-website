@@ -4,146 +4,341 @@
   <meta charset="utf-8" />
   <title>ドシラク＆バプジプ | ホーム</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ドシラク＆バプジプ 高円寺 韓国家庭料理・お弁当の公式サイト。メニュー、注文方法、店舗情報はこちら。">
+  <meta name="description" content="ドシラク＆バプジプ 高円寺本店。チキン弁当、サムギョプサル弁当、トッポッキ、キンパなど、韓国の家庭ごはんをそのままお弁当にしてお届けします。">
+
+  <!-- Korean brush / brand fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Do+Hyeon&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
-      background-color: #d2b48c;           /* 한지 베이스 */
-      background-image: url("bg-hanji.jpg");
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      color: #2b2115;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    header {
-      background: rgba(255,255,255,0.9);
-      border-bottom: 1px solid #d5c0a0;
-      padding: 10px 0;
-      margin-bottom: 24px;
-      backdrop-filter: blur(4px);
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo-img {
-      height: 52px;
-    }
-    nav a {
-      margin-left: 20px;
-      font-size: 0.98rem;
-      color: #2b2115;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    nav a:hover { opacity: 0.7; }
+    * { box-sizing:border-box; margin:0; padding:0; }
 
-    main {
-      padding-bottom: 48px;
+    body {
+      font-family:"Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color:#e4d0a3;
+      background-image:url("bg-hanji.jpg");
+      background-size:cover;
+      background-attachment:fixed;
+      background-repeat:no-repeat;
+      color:#2b2115;
+      line-height:1.7;
     }
-    h1 {
-      font-size: 1.9rem;
-      margin-bottom: 10px;
+
+    a { color:inherit; text-decoration:none; }
+
+    .container {
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 16px;
     }
-    p.lead {
-      font-size: 1rem;
-      margin-bottom: 16px;
+
+    /* ---------- HEADER / NAV ---------- */
+
+    header {
+      background:rgba(255,255,255,0.96);
+      border-bottom:1px solid rgba(180,140,90,0.4);
+      box-shadow:0 4px 16px rgba(0,0,0,0.05);
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(6px);
     }
-    section { margin-bottom: 40px; }
+
+    .nav-inner {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:8px 0;
+    }
+
+    .logo-group {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-badge {
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.9);
+      border:1px solid rgba(210,170,120,0.8);
+      box-shadow:0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .logo-badge img {
+      height:34px;
+      width:auto;
+      border-radius:999px;
+      object-fit:cover;
+    }
+
+    .brand-text-main {
+      font-family:"Do Hyeon","East Sea Dokdo",system-ui;
+      font-weight:400;
+      font-size:1.05rem;
+      letter-spacing:0.16em;
+    }
+
+    .brand-text-sub {
+      font-size:0.7rem;
+      opacity:0.8;
+    }
+
+    nav.main-nav {
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
+      letter-spacing:0.16em;
+      font-size:0.9rem;
+    }
+
+    .nav-item {
+      position:relative;
+      padding:6px 14px;
+      border-radius:999px;
+      background:rgba(250,239,211,0.8);
+      border:1px solid rgba(210,160,90,0.7);
+      box-shadow:0 3px 6px rgba(0,0,0,0.06);
+      transition:transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s ease-out;
+    }
+
+    .nav-item:hover {
+      transform:translateY(-1px);
+      background:#f5e1b9;
+      box-shadow:0 5px 12px rgba(0,0,0,0.12);
+    }
+
+    .nav-item.active {
+      background:#dba15a;
+      color:#fff;
+      border-color:#c07c35;
+      box-shadow:0 5px 14px rgba(0,0,0,0.18);
+    }
+
+    /* ---------- MAIN / HERO ---------- */
+
+    main { padding:26px 0 40px; }
 
     .hero-card {
-      background: rgba(255,255,255,0.9);
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .video-wrap {
-      margin-top: 16px;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #000;
-    }
-    .promo-video {
-      width: 100%;
-      display: block;
+      max-width:980px;
+      margin:0 auto 26px;
+      background:rgba(255,255,255,0.96);
+      border-radius:26px;
+      padding:24px 22px 26px;
+      box-shadow:0 12px 32px rgba(0,0,0,0.15);
     }
 
-    .info-block {
-      background: rgba(255,255,255,0.9);
-      border-radius: 18px;
-      padding: 20px;
+    .hero-grid {
+      display:flex;
+      flex-direction:column;
+      gap:18px;
     }
-    @media (max-width: 768px) {
-      .nav {
-        flex-direction: column;
-        gap: 8px;
-      }
-      nav a {
-        margin-left: 0;
-        margin-right: 16px;
-      }
-      h1 {
-        font-size: 1.6rem;
-      }
+
+    .hero-title {
+      font-family:"East Sea Dokdo","Do Hyeon",system-ui;
+      font-size:2.4rem;
+      letter-spacing:0.24em;
+      margin-bottom:4px;
+    }
+
+    .hero-katakana {
+      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
+      font-size:0.9rem;
+      letter-spacing:0.18em;
+      margin-bottom:6px;
+      color:#8b5a23;
+    }
+
+    .hero-sub {
+      font-size:0.9rem;
+      color:#5c4630;
+      font-weight:500;
+      margin-bottom:10px;
+    }
+
+    .hero-badges {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:12px;
+    }
+
+    .hero-badge {
+      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
+      font-size:0.75rem;
+      letter-spacing:0.12em;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#f8e4c3;
+      border:1px solid rgba(210,160,90,0.7);
+    }
+
+    video.hero-video {
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 26px rgba(0,0,0,0.25);
+      background:#000;
+    }
+
+    /* ---------- SECTIONS ---------- */
+
+    .section {
+      max-width:980px;
+      margin:0 auto 22px;
+      background:rgba(255,255,255,0.96);
+      border-radius:22px;
+      padding:20px 22px 22px;
+      box-shadow:0 8px 24px rgba(0,0,0,0.10);
+    }
+
+    .section-title {
+      font-family:"East Sea Dokdo","Do Hyeon",system-ui;
+      font-size:1.7rem;
+      letter-spacing:0.22em;
+      margin-bottom:6px;
+    }
+
+    .section-sub {
+      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
+      font-size:0.82rem;
+      letter-spacing:0.18em;
+      color:#8b5a23;
+      margin-bottom:10px;
+    }
+
+    .section-body {
+      font-size:0.9rem;
+      color:#463524;
+    }
+
+    .section-body strong { font-weight:700; }
+
+    .keypoints {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .keypoint {
+      flex:1 1 180px;
+      min-width:180px;
+      background:#fff7e6;
+      border-radius:18px;
+      padding:10px 12px;
+      font-size:0.85rem;
+      border:1px solid rgba(210,160,90,0.7);
+    }
+
+    .keypoint-label {
+      display:block;
+      font-family:"Do Hyeon","Noto Sans JP",sans-serif;
+      font-size:0.8rem;
+      letter-spacing:0.16em;
+      color:#b76a22;
+      margin-bottom:2px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (min-width:768px) {
+      .hero-grid { flex-direction:row; }
+      .hero-text { flex:1; }
+      .hero-media { flex:1.2; }
+    }
+
+    @media (max-width:768px) {
+      .nav-inner { flex-direction:column; gap:8px; }
+      nav.main-nav { justify-content:center; flex-wrap:wrap; }
+      .hero-title { font-size:2rem; }
+      .section-title { font-size:1.5rem; }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="container nav">
-      <img src="bapjip.png" class="logo-img" alt="ドシラク＆バプジプ ロゴ">
-      <nav>
-        <a href="index.html">ホーム</a>
-        <a href="menu.html">メニュー</a>
-        <a href="order.html">注文</a>
-        <a href="shop.html">店舗情報</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <!-- HERO + 프로모션 영상 -->
-    <section class="hero-card">
-      <h1>ドシラク＆バプジプ 高円寺</h1>
-      <p class="lead">
-        チキン弁当、サムギョプサル弁当、トッポッキ、キンパなど、<br>
-        韓国の家庭ごはんを、そのままお弁当にしました。
-      </p>
-
-      <div class="video-wrap">
-        <video
-          class="promo-video"
-          src="cm.mp4"
-          controls
-          autoplay
-          muted
-          loop
-          playsinline
-        >
-          Your browser does not support the video tag.
-        </video>
+<header>
+  <div class="container nav-inner">
+    <!-- 왼쪽: 도시락 로고 + 밥집 로고 -->
+    <div class="logo-group">
+      <div class="logo-badge">
+        <img src="dosiraku.jpg" alt="ドシラク ロゴ">
+        <img src="bapjip.png" alt="バプジプ ロゴ">
+        <div>
+          <div class="brand-text-main">ドシラク＆バプジプ</div>
+          <div class="brand-text-sub">Korean Style Restaurant Chain</div>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 간단 소개 -->
-    <section class="info-block" style="margin-top:24px;">
-      <h2 style="font-size:1.2rem; margin-bottom:8px;">韓国の家庭ごはんを、東京の日常に。</h2>
+    <!-- 오른쪽: 네비게이션 -->
+    <nav class="main-nav">
+      <a class="nav-item active" href="index.html">ホーム</a>
+      <a class="nav-item" href="menu.html">メニュー</a>
+      <a class="nav-item" href="order.html">注文</a>
+      <a class="nav-item" href="shop.html">店舗情報</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <!-- HERO -->
+  <section class="hero-card">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-badges">
+          <span class="hero-badge">高円寺本店</span>
+          <span class="hero-badge">テイクアウト &amp; デリバリー専門</span>
+        </div>
+        <div class="hero-katakana">DOSIRAK &amp; BAPUJIPU</div>
+        <h1 class="hero-title">ドシラク＆バプジプ 高円寺</h1>
+        <p class="hero-sub">
+          チキン弁当、サムギョプサル弁当、トッポッキ、キンパなど、<br>
+          韓国の家庭ごはんを、そのままお弁当にしました。
+        </p>
+      </div>
+      <div class="hero-media">
+        <video class="hero-video" src="cm.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- 브랜드 / 체인 소개 -->
+  <section class="section">
+    <h2 class="section-title">韓国のおうちごはんを、東京の日常に。</h2>
+    <div class="section-sub">KOREAN HOME MEAL CHAIN</div>
+    <div class="section-body">
       <p>
-        高円寺エリアを中心に、出来立てのお弁当とおかずをお届けします。<br>
-        ご注文は「メニュー」ページから内容をご確認のうえ、「注文」ページの
-        電話またはリンクよりお願いいたします。
+        ドシラク＆バプジプは、高円寺から始まった
+        <strong>韓国家庭料理のお弁当チェーン</strong>です。<br>
+        フライドチキン、サムギョプサル、キンパ、トッポッキ…。<br>
+        「今日は韓国ごはんにしよう」と思ったその日に、
+        まとめてテイクアウト・デリバリーできるお店を目指しています。
       </p>
-    </section>
-  </main>
+
+      <div class="keypoints">
+        <div class="keypoint">
+          <span class="keypoint-label">POINT 01</span>
+          チキン弁当・サムギョプサル弁当・キンパ・トッポッキなど
+          人気メニューを一つのお店でオーダー可能。
+        </div>
+        <div class="keypoint">
+          <span class="keypoint-label">POINT 02</span>
+          Uber Eats / 出前館 / 電話注文から選べて、
+          忙しい日もサクッと韓国ごはん。
+        </div>
+        <div class="keypoint">
+          <span class="keypoint-label">POINT 03</span>
+          高円寺からスタートし、今後は東京各地へ。
+          チェーン展開を見据えて準備中です。
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 </body>
 </html>
