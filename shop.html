@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>ドシラク＆バプジプ | 店舗情報・アクセス</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ドシラク＆バプジプ 高円寺本店の店舗情報とアクセス。高円寺駅から徒歩9分、中野駅から徒歩16分。">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Noto Sans JP", system-ui, -apple-system, sans-serif;
+      background-color: #d2b48c;
+      background-image: url("bg-hanji.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: #2b2115;
+      line-height: 1.6;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    header {
+      background: rgba(255,255,255,0.9);
+      border-bottom: 1px solid #d5c0a0;
+      padding: 10px 0;
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .nav { display: flex; justify-content: space-between; align-items: center; }
+    .logo-img { height: 52px; }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #2b2115;
+      font-size: 0.98rem;
+    }
+    nav a:hover { opacity: 0.7; }
+
+    h1 { font-size: 1.9rem; margin-bottom: 16px; }
+    h2 { font-size: 1.2rem; margin-bottom: 8px; }
+    section { margin-bottom: 28px; }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .info-main {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    .info-main .strong {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .map-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 14px;
+    }
+    .map-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+    .map-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .map-card img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    @media (min-width: 768px) {
+      .map-wrapper {
+        flex-direction: row;
+      }
+      .map-card {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav { flex-direction: column; gap: 8px; }
+      nav a { margin-left: 0; margin-right: 16px; }
+      h1 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <img src="bapjip.png" class="logo-img" alt="ドシラク＆バプジプ ロゴ">
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="menu.html">メニュー</a>
+      <a href="order.html">注文</a>
+      <a href="shop.html">店舗情報</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h1>店舗情報</h1>
+    <div class="info-main">
+      <p class="strong">ドシラク＆バプジプ 高円寺本店</p>
+      <p class="strong" style="margin-top:6px;">
+        住所：東京都杉並区高円寺南5丁目21番7番　高円寺マンション102号
+      </p>
+      <p style="margin-top:10px;">
+        高円寺駅から徒歩 <span class="strong">約9分</span><br>
+        中野駅から徒歩 <span class="strong">約16分</span>
+      </p>
+      <p style="margin-top:10px;">
+        電話：<span class="strong">03-3316-8866</span><br>
+        営業時間：<span class="strong">11:00〜22:00（年中無休）</span>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>アクセス</h2>
+    <div class="map-wrapper">
+      <div class="map-card">
+        <h3>高円寺駅からのアクセス（徒歩約9分）</h3>
+        <img src="koenji---.png" alt="高円寺駅からの道順">
+      </div>
+      <div class="map-card">
+        <h3>中野駅からのアクセス（徒歩約16分）</h3>
+        <img src="nakano---.png" alt="中野駅からの道順">
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
