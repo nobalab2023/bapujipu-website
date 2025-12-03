@@ -2,104 +2,245 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <title>ドシラク＆バプジプ | メニュー</title>
+  <title>メニュー | ドシラク＆バプジプ 高円寺本店</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ドシラク＆バプジプのメニュー一覧。チキン弁当、サムギョプサル弁当、キンパ、トッポッキなど。">
+
+  <!-- 일본 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-paper: #f3e4c9;
+      --brand-dark: #3a2716;
+      --brand-accent: #c86a3a;
+      --max-width: 1080px;
+      --ink: #29251e;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
-      background-color: #d2b48c;
+      margin: 0;
+      background-color: var(--bg-paper);
       background-image: url("bg-hanji.jpg");
       background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      color: #2b2115;
-      line-height: 1.6;
+      font-family: "Noto Sans JP";
+      color: var(--ink);
     }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
     header {
-      background: rgba(255,255,255,0.9);
-      border-bottom: 1px solid #d5c0a0;
-      padding: 10px 0;
-      margin-bottom: 24px;
-      backdrop-filter: blur(4px);
+      position: sticky;
+      top: 0;
+      background: rgba(248,238,219,0.96);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(8px);
+      z-index: 50;
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; }
-    .logo-img { height: 52px; }
-    nav a {
-      margin-left: 20px;
-      font-size: 0.98rem;
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logos img {
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px 6px;
+      object-fit: cover;
+    }
+
+    .brand-title-main {
+      font-family: "M PLUS 1p";
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--brand-dark);
+      letter-spacing: .12em;
+    }
+
+    .brand-title-sub {
+      font-size: 11px;
+      color: #8a785a;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
       font-weight: 600;
-      color: #2b2115;
+      letter-spacing: .1em;
+      font-size: 14px;
+      padding: 0;
+    }
+
+    nav a {
       text-decoration: none;
-    }
-    nav a:hover { opacity: 0.7; }
-
-    h1 { font-size: 1.8rem; margin-bottom: 12px; }
-    p.lead { margin-bottom: 20px; }
-
-    .card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      color: var(--ink);
+      position: relative;
+      padding-bottom: 4px;
     }
 
-    .menu-images {
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--brand-accent);
+      transition: width .2s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    h1 {
+      font-family: "M PLUS 1p";
+      font-weight: 800;
+      font-size: 32px;
+      letter-spacing: .16em;
+      color: var(--brand-dark);
+      margin-bottom: 20px;
+    }
+
+    .menu-img {
+      width: 100%;
+      margin-bottom: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      margin-top: 60px;
+      background: #f5e0b7;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-    }
-    .menu-images img {
-      width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
     }
 
-    @media (min-width: 768px) {
-      .menu-images {
-        flex-direction: row;
-      }
-      .menu-images img {
-        width: 50%;
-      }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    @media (max-width: 768px) {
-      .nav { flex-direction: column; gap: 8px; }
-      nav a { margin-left: 0; margin-right: 16px; }
+    .footer-logo img {
+      height: 40px;
+      border-radius: 50%;
+      padding: 4px;
+      background: #fff;
+    }
+
+    .footer-nova {
+      font-family: "M PLUS 1p";
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: .12em;
+    }
+
+    .footer-sns {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-sns img {
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+    }
+
+    .copy {
+      color: #7d6b53;
+      font-size: 11px;
+      text-align: center;
+      margin-top: 8px;
     }
   </style>
 </head>
+
 <body>
+
 <header>
-  <div class="container nav">
-    <img src="bapjip.png" class="logo-img" alt="ドシラク＆バプジプ ロゴ">
+  <div class="nav-inner">
+    <div class="brand-left">
+      <div class="brand-logos">
+        <img src="dosiraku.jpg">
+        <img src="bapjip.png">
+      </div>
+      <div>
+        <div class="brand-title-main">ドシラク＆バプジプ 高円寺本店</div>
+        <div class="brand-title-sub">KOREAN STYLE RESTAURANT</div>
+      </div>
+    </div>
+
     <nav>
-      <a href="index.html">ホーム</a>
-      <a href="menu.html">メニュー</a>
-      <a href="order.html">注文</a>
-      <a href="shop.html">店舗情報</a>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="menu.html">メニュー</a></li>
+        <li><a href="order.html">注文</a></li>
+        <li><a href="shop.html">店舗情報</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-<main class="container">
-  <div class="card">
+<main>
+  <section class="section">
     <h1>メニュー</h1>
-    <p class="lead">
-      代表的なメニューはこちらです。<br>
-      最新の価格・ラインナップは Uber Eats / 出前館 のページもご確認ください。
-    </p>
 
-    <div class="menu-images">
-      <img src="menu01.png" alt="メニュー表 1">
-      <img src="menu02.png" alt="メニュー表 2">
-    </div>
-  </div>
+    <img class="menu-img" src="menu01.png" alt="menu01">
+    <img class="menu-img" src="menu02.png" alt="menu02">
+
+  </section>
 </main>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-logo">
+      <img src="NOVA_LAB.jpg">
+      <span class="footer-nova">NOVA LAB</span>
+    </div>
+
+    <div class="footer-sns">
+      <img src="instagram.png">
+      <a href="https://www.instagram.com/babjibkoenji" target="_blank">@babjibkoenji</a>
+    </div>
+
+    <div class="copy">© 2025 NOVA LAB / ドシラク＆バプジプ 高円寺本店</div>
+
+  </div>
+</footer>
+
 </body>
 </html>
