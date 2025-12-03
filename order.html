@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>ドシラク＆バプジプ | 注文</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ドシラク＆バプジプのご注文方法。Uber Eats・出前館・電話・LINEでご注文いただけます。">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
+      background-color: #d2b48c;
+      background-image: url("bg-hanji.jpg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: #2b2115;
+      line-height: 1.6;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    header {
+      background: rgba(255,255,255,0.9);
+      border-bottom: 1px solid #d5c0a0;
+      padding: 10px 0;
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 52px; }
+    nav a {
+      margin-left: 20px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #2b2115;
+      text-decoration: none;
+    }
+    nav a:hover { opacity: 0.7; }
+
+    h1 { font-size: 1.8rem; margin-bottom: 16px; }
+    h2 { font-size: 1.1rem; margin-bottom: 6px; }
+    section { margin-bottom: 24px; }
+
+    .card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .order-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      background: #2b2115;
+      color: #fff;
+    }
+    .order-btn.uber { background: #000; }
+    .order-btn.demae { background: #d32f2f; }
+
+    .qr {
+      max-width: 220px;
+      border-radius: 12px;
+      margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      background: #fff;
+    }
+
+    .strong-line {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .nav { flex-direction: column; gap: 8px; }
+      nav a { margin-left: 0; margin-right: 16px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <img src="bapjip.png" class="logo-img" alt="ドシラク＆バプジプ ロゴ">
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="menu.html">メニュー</a>
+      <a href="order.html">注文</a>
+      <a href="shop.html">店舗情報</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>ご注文方法</h1>
+
+  <!-- Uber Eats -->
+  <section class="card">
+    <h2>1. Uber Eats で注文</h2>
+    <p>
+      お近くのエリアからは Uber Eats でご注文いただけます。<br>
+      アプリまたは下のボタンから「本場韓国料理 ハフシフ 高円寺本店」のページへ。
+    </p>
+    <a
+      class="order-btn uber"
+      href="https://www.ubereats.com/store/%E6%9C%AC%E5%A0%B4%E9%9F%93%E5%9B%BD%E6%96%99%E7%90%86-%E3%83%8F%E3%83%95%E3%82%B7%E3%83%95-%E9%AB%98%E5%86%86%E5%AF%BA%E6%9C%AC%E5%BA%97/T0sxNYhwX_Ori0ZeVh-4UA?diningMode=DELIVERY"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Uber Eats で注文する
+    </a>
+  </section>
+
+  <!-- 出前館 -->
+  <section class="card">
+    <h2>2. 出前館で注文</h2>
+    <p>
+      出前館からもご利用いただけます。<br>
+      エリアによっては Uber Eats よりも配達しやすい場合があります。
+    </p>
+    <a
+      class="order-btn demae"
+      href="https://demae-can.com/shop/menu/3365077"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      出前館のメニューを見る
+    </a>
+  </section>
+
+  <!-- 電話注文 -->
+  <section class="card">
+    <h2>3. 電話で注文</h2>
+    <p>
+      まとまったご注文や、細かいご相談がある場合はお電話がおすすめです。<br>
+      スタッフが直接対応いたします。
+    </p>
+    <p class="strong-line">
+      📞 03-3316-8866
+    </p>
+    <p class="strong-line">
+      営業時間：11:00〜22:00（年中無休）
+    </p>
+  </section>
+
+  <!-- LINE 주문 -->
+  <section class="card">
+    <h2>4. LINE で注文</h2>
+    <p>
+      LINE 公式アカウントを友だち追加して、<br>
+      「お名前・ご住所・お電話番号・ご注文内容」をメッセージで送ってください。
+    </p>
+    <p>
+      スタッフが内容を確認し、折り返し確認メッセージをお送りします。
+    </p>
+    <img src="line-qr.png" alt="LINE 公式アカウント QRコード" class="qr">
+    <!-- QR 파일 이름이 다르면 line-qr.png 부분을 실제 파일명으로 바꿔주세요 -->
+  </section>
+</main>
+</body>
+</html>
