@@ -1,165 +1,257 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <title>ドシラク＆バプジプ | 注文</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ドシラク＆バプジプのご注文方法。Uber Eats・出前館・電話・LINEでご注文いただけます。">
+  <meta charset="utf-8">
+  <title>注文 | ドシラク＆バプジプ 高円寺本店</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 일본 폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
-      background-color: #d2b48c;
-      background-image: url("bg-hanji.jpg");
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      color: #2b2115;
-      line-height: 1.6;
+    :root {
+      --bg-paper: #f3e4c9;
+      --brand-dark: #3a2716;
+      --brand-accent: #c86a3a;
+      --max-width: 1080px;
+      --ink: #29251e;
     }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-paper);
+      background-image: url("bg-hanji.jpg");
+      font-family: "Noto Sans JP";
+      color: var(--ink);
+    }
 
     header {
-      background: rgba(255,255,255,0.9);
-      border-bottom: 1px solid #d5c0a0;
-      padding: 10px 0;
-      margin-bottom: 24px;
-      backdrop-filter: blur(4px);
+      position: sticky;
+      top: 0;
+      background: rgba(248,238,219,0.96);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(8px);
+      z-index: 50;
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; }
-    .logo-img { height: 52px; }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logos img {
+      height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      padding: 4px 6px;
+    }
+
+    .brand-title-main {
+      font-family: "M PLUS 1p";
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: .12em;
+      color: var(--brand-dark);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 18px;
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: .1em;
+    }
+
     nav a {
-      margin-left: 20px;
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: #2b2115;
+      color: var(--ink);
       text-decoration: none;
-    }
-    nav a:hover { opacity: 0.7; }
-
-    h1 { font-size: 1.8rem; margin-bottom: 16px; }
-    h2 { font-size: 1.1rem; margin-bottom: 6px; }
-    section { margin-bottom: 24px; }
-
-    .card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 18px;
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      position: relative;
+      padding-bottom: 4px;
     }
 
-    .order-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95rem;
-      background: #2b2115;
-      color: #fff;
+    nav a::after {
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:2px;
+      background:var(--brand-accent);
+      transition:width .2s;
     }
-    .order-btn.uber { background: #000; }
-    .order-btn.demae { background: #d32f2f; }
+    nav a:hover::after {
+      width:100%;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      padding: 32px 16px 60px;
+      margin:0 auto;
+    }
+
+    h1 {
+      font-family:"M PLUS 1p";
+      font-weight:800;
+      font-size:32px;
+      letter-spacing:.16em;
+      margin-bottom:20px;
+      color:var(--brand-dark);
+    }
+
+    p { font-size:15px; margin-bottom:16px; }
 
     .qr {
-      max-width: 220px;
-      border-radius: 12px;
-      margin-top: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      background: #fff;
+      width:230px;
+      margin:12px 0 24px;
+      border-radius:10px;
     }
 
-    .strong-line {
-      font-weight: 700;
-      font-size: 1rem;
-      margin-top: 6px;
+    .map {
+      width:100%;
+      margin-bottom:24px;
+      border-radius:14px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.1);
     }
 
-    @media (max-width: 768px) {
-      .nav { flex-direction: column; gap: 8px; }
-      nav a { margin-left: 0; margin-right: 16px; }
+    footer {
+      margin-top:60px;
+      background:#f5e0b7;
+      border-top:1px solid rgba(0,0,0,0.06);
+    }
+
+    .footer-inner {
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:24px 16px;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+    }
+
+    .footer-logo {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .footer-logo img {
+      height:40px;
+      border-radius:50%;
+      background:#fff;
+      padding:4px;
+    }
+
+    .footer-nova {
+      font-family:"M PLUS 1p";
+      font-weight:800;
+      letter-spacing:.12em;
+      font-size:16px;
+    }
+
+    .footer-sns {
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .footer-sns img {
+      height:22px;
+      width:22px;
+      border-radius:50%;
+    }
+
+    .copy {
+      font-size:11px;
+      color:#7d6b53;
     }
   </style>
 </head>
+
 <body>
+
 <header>
-  <div class="container nav">
-    <img src="bapjip.png" class="logo-img" alt="ドシラク＆バプジプ ロゴ">
+  <div class="nav-inner">
+    <div class="brand-left">
+      <div class="brand-logos">
+        <img src="dosiraku.jpg">
+        <img src="bapjip.png">
+      </div>
+      <div>
+        <div class="brand-title-main">ドシラク＆バプジプ 高円寺本店</div>
+        <div class="brand-title-sub">KOREAN STYLE RESTAURANT</div>
+      </div>
+    </div>
+
     <nav>
-      <a href="index.html">ホーム</a>
-      <a href="menu.html">メニュー</a>
-      <a href="order.html">注文</a>
-      <a href="shop.html">店舗情報</a>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="menu.html">メニュー</a></li>
+        <li><a href="order.html">注文</a></li>
+        <li><a href="shop.html">店舗情報</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
-<main class="container">
-  <h1>ご注文方法</h1>
+<main>
 
-  <!-- Uber Eats -->
-  <section class="card">
-    <h2>1. Uber Eats で注文</h2>
-    <p>
-      お近くのエリアからは Uber Eats でご注文いただけます。<br>
-      アプリまたは下のボタンから「本場韓国料理 ハフシフ 高円寺本店」のページへ。
-    </p>
-    <a
-      class="order-btn uber"
-      href="https://www.ubereats.com/store/%E6%9C%AC%E5%A0%B4%E9%9F%93%E5%9B%BD%E6%96%99%E7%90%86-%E3%83%8F%E3%83%95%E3%82%B7%E3%83%95-%E9%AB%98%E5%86%86%E5%AF%BA%E6%9C%AC%E5%BA%97/T0sxNYhwX_Ori0ZeVh-4UA?diningMode=DELIVERY"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Uber Eats で注文する
-    </a>
+  <section class="section">
+    <h1>注文</h1>
+
+    <p>Uber Eats / 出前館 / お電話注文に対応しております。</p>
+
+    <p><strong>電話注文：</strong> 03-3316-8866</p>
+    <p><strong>営業時間：</strong> 11:00〜22:00（年中無休）</p>
+
+    <img class="qr" src="qr.png" alt="QR">
+
+    <h2 style="font-family:'M PLUS 1p'; font-weight:700; font-size:22px;">アクセス</h2>
+
+    <p><strong>住所：</strong> 東京都杉並区高円寺南5丁目21-7 高円寺マンション102号</p>
+    <p>高円寺駅から徒歩9分 / 中野駅から徒歩16分</p>
+
+    <img class="map" src="koenji.png" alt="koenji map">
+    <img class="map" src="nakano.png" alt="nakano map">
+
   </section>
 
-  <!-- 出前館 -->
-  <section class="card">
-    <h2>2. 出前館で注文</h2>
-    <p>
-      出前館からもご利用いただけます。<br>
-      エリアによっては Uber Eats よりも配達しやすい場合があります。
-    </p>
-    <a
-      class="order-btn demae"
-      href="https://demae-can.com/shop/menu/3365077"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      出前館のメニューを見る
-    </a>
-  </section>
-
-  <!-- 電話注文 -->
-  <section class="card">
-    <h2>3. 電話で注文</h2>
-    <p>
-      まとまったご注文や、細かいご相談がある場合はお電話がおすすめです。<br>
-      スタッフが直接対応いたします。
-    </p>
-    <p class="strong-line">
-      📞 03-3316-8866
-    </p>
-    <p class="strong-line">
-      営業時間：11:00〜22:00（年中無休）
-    </p>
-  </section>
-
-  <!-- LINE 주문 -->
-  <section class="card">
-    <h2>4. LINE で注文</h2>
-    <p>
-      LINE 公式アカウントを友だち追加して、<br>
-      「お名前・ご住所・お電話番号・ご注文内容」をメッセージで送ってください。
-    </p>
-    <p>
-      スタッフが内容を確認し、折り返し確認メッセージをお送りします。
-    </p>
-    <img src="qr.png" alt="LINE 公式アカウント QRコード" class="qr">
-  </section>
 </main>
+
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-logo">
+      <img src="NOVA_LAB.jpg">
+      <span class="footer-nova">NOVA LAB</span>
+    </div>
+
+    <div class="footer-sns">
+      <img src="instagram.png">
+      <a href="https://www.instagram.com/babjibkoenji" target="_blank">@babjibkoenji</a>
+    </div>
+
+    <div class="copy">© 2025 NOVA LAB / ドシラク＆バプジプ 高円寺本店</div>
+
+  </div>
+</footer>
+
 </body>
 </html>
